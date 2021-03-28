@@ -14,6 +14,9 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    lr = joblib.load("model.pkl") # Load "model.pkl"
+    model_columns = joblib.load("model_columns.pkl") # Load "model_columns.pkl"
+    
     if lr:
         try:
             json_ = request.json
